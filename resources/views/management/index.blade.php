@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-4">
                 <ul>
-                    <li><a href="">Category</a></li>
+                    <li><a href="{{ route('category.index') }}">Category</a></li>
                     <li><a href="">Menu</a></li>
                     <li><a href="">Table</a></li>
                     <li><a href="">User</a></li>
