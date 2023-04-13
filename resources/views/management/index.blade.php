@@ -3,15 +3,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-4">
-                <ul>
-                    <li><a href="{{ route('category.index') }}">Category</a></li>
-                    <li><a href="">Menu</a></li>
-                    <li><a href="">Table</a></li>
-                    <li><a href="">User</a></li>
-                </ul>
+            <div class="col-3">
+                @include('management.inc.sidebar')
             </div>
-            <div class="col-8">9</div>
+            <div class="col-9">9</div>
         </div>
     </div>
 </x-app-layout>

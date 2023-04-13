@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Management\CategoryController;
+use App\Http\Controllers\Management\MenuController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,4 @@ require __DIR__.'/auth.php';
 Route::view('/management', 'management.index');
 
 Route::resource('management/category', CategoryController::class);
+Route::resource('management/menu', MenuController::class);

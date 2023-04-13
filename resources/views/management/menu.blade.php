@@ -7,11 +7,11 @@
             <div class="col-3">
                @include('management.inc.sidebar')
             </div>
-            
+
             <div class="col-9">
                 <div class="flex items-center justify-between p-2 my-4">
-                    <h1 class="text-3xl text-red-400">Category</h1>
-                    <a class="btn btn-info" href="{{ route('category.create') }}">Create category</a>
+                    <h1 class="text-3xl text-red-400">Menu</h1>
+                    <a class="btn btn-info" href="{{ route('menu.create') }}">Create menu</a>
                 </div>
 
                 @if (Session()->has('status'))
@@ -22,6 +22,10 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Picture</th>
+                            <th>Description</th>
                             <th>Category</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -29,15 +33,22 @@
                     </thead>
 
                     <tbody>
-                    @foreach ($categories as $c)
+                    @foreach ($menus as $m)
+                    {{-- {{ dump($m) }} --}}
                         <tr>
-                            <td>{{ $c->id }}</td>
-                            <td>{{ $c->name }}</td>
+                            <td>{{ $m->id }}</td>
+                            <td>{{ $m->name }}</td>
+                            <td>{{ $m->price }}</td>
                             <td>
-                                <a href="{{ route('category.edit', ['category' => $c->id]) }}" class="btn btn-warning">Edit</a>
+                                <img src='{{ asset("/menu_images" ) }}/{{ $m->image }}' width="100" height="100"  alt="{{ $m->name }}">
+                            </td>
+                            <td>{{ $m->description === NULL ? "No Description" : $m->description }}</td>
+                            <td>{{ $m->category->name }}</td>
+                            <td>
+                                <a href="{{ route('category.edit', ['category' => $m->id]) }}" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                               <form action="{{ route('category.destroy', ['category' => $c->id]) }}" method="POST">
+                               <form action="{{ route('category.destroy', ['category' => $m->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>
@@ -47,7 +58,7 @@
                     @endforeach</tbody>
                 </table>
 
-                {{ $categories->links() }}
+                {{-- {{ $categories->links() }} --}}
             </div>
         </div>
     </div>
