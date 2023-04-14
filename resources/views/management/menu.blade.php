@@ -45,7 +45,7 @@
                             <td>{{ $m->description === NULL ? "No Description" : $m->description }}</td>
                             <td>{{ $m->category->name }}</td>
                             <td>
-                                <a href="{{ route('category.edit', ['category' => $m->id]) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ route('menu.edit', ['menu' => $m->id]) }}" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
                                <form action="{{ route('category.destroy', ['category' => $m->id]) }}" method="POST">

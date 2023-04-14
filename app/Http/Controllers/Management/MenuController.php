@@ -76,7 +76,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('management.editMenu')->with('menu', $menu)->with('categories', Category::all());
     }
 
     /**
